@@ -83,16 +83,16 @@ class MockConnectivity extends _i1.Mock implements _i5.Connectivity {
   }
 
   @override
-  _i4.Stream<List<_i5.ConnectivityResult>> get onConnectivityChanged =>
+  _i4.Stream<_i5.ConnectivityResult> get onConnectivityChanged =>
       (super.noSuchMethod(
         Invocation.getter(#onConnectivityChanged),
         returnValue: const Stream.empty(),
-      ) as _i4.Stream<List<_i5.ConnectivityResult>>);
+      ) as _i4.Stream<_i5.ConnectivityResult>);
 
   @override
-  _i4.Future<List<_i5.ConnectivityResult>> checkConnectivity() =>
+  _i4.Future<_i5.ConnectivityResult> checkConnectivity() =>
       (super.noSuchMethod(
         Invocation.method(#checkConnectivity, []),
-        returnValue: Future.value([_i5.ConnectivityResult.none]),
-      ) as _i4.Future<List<_i5.ConnectivityResult>>);
+        returnValue: Future.value(_i5.ConnectivityResult.none),
+      ) as _i4.Future<_i5.ConnectivityResult>);
 }

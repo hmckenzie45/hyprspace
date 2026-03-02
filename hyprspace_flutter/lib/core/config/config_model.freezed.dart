@@ -88,8 +88,8 @@ class _$HyprspaceConfigCopyWithImpl<$Res, $Val extends HyprspaceConfig>
   @override
   @pragma('vm:prefer-inline')
   $InterfaceConfigCopyWith<$Res> get interface {
-    return $InterfaceConfigCopyWithImpl<$Res, InterfaceConfig>(
-        _value.interface as InterfaceConfig, (value) {
+    return _$InterfaceConfigCopyWithImpl<$Res, InterfaceConfig>(
+        _value.interface, (value) {
       return _then(_value.copyWith(interface: value) as $Val);
     });
   }
