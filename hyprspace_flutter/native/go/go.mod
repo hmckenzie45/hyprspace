@@ -1,6 +1,6 @@
 module github.com/hyprspace/hyprspace-flutter-native
 
-go 1.20
+go 1.17
 
 require (
 	github.com/libp2p/go-libp2p v0.17.0

@@ -124,7 +124,7 @@ jobs:
       - name: Set up Go
         uses: actions/setup-go@v5
         with:
-          go-version: '1.22'
+          go-version: '1.17'
 
       - name: Set up Flutter
         uses: subosito/flutter-action@v2
@@ -191,10 +191,9 @@ jobs:
           distribution: temurin
           java-version: '17'
 
-      - name: Set up Go
-        uses: actions/setup-go@v5
-        with:
-          go-version: '1.22'
+      - name: Install Android SDK Platform 35
+        run: |
+          echo "y" | $ANDROID_SDK_ROOT/cmdline-tools/latest/bin/sdkmanager --install "platforms;android-35" "build-tools;35.0.0"
 
       - name: Set up Flutter
         uses: subosito/flutter-action@v2
@@ -208,6 +207,13 @@ jobs:
 
       - name: Add Android support
         run: flutter create --platforms=android .
+
+      - name: Set compileSdkVersion to 35
+        run: |
+          sed -i 's/compileSdkVersion flutter\.compileSdkVersion/compileSdkVersion 35/' android/app/build.gradle
+          sed -i 's/compileSdk flutter\.compileSdkVersion/compileSdk 35/' android/app/build.gradle
+          grep -E 'compileSdk(Version)?\s+35' android/app/build.gradle || \
+            { echo "ERROR: Failed to set compileSdkVersion to 35 in build.gradle"; exit 1; }
 
       - name: Build Android APK (release)
         run: flutter build apk --release --split-per-abi
