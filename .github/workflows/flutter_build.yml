@@ -92,6 +92,9 @@ jobs:
       - name: Get dependencies
         run: flutter pub get
 
+      - name: Add Linux desktop support
+        run: flutter create --platforms=linux .
+
       - name: Build Linux release
         run: flutter build linux --release
 
@@ -134,6 +137,9 @@ jobs:
 
       - name: Get dependencies
         run: flutter pub get
+
+      - name: Add Windows desktop support
+        run: flutter create --platforms=windows .
 
       - name: Build Windows release
         run: flutter build windows --release
@@ -180,6 +186,9 @@ jobs:
 
       - name: Get dependencies
         run: flutter pub get
+
+      - name: Add Android support
+        run: flutter create --platforms=android .
 
       - name: Build Android APK (release)
         run: flutter build apk --release --split-per-abi
