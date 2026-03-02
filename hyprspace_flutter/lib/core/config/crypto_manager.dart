@@ -90,14 +90,11 @@ class CryptoManager {
     const chars =
         'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/';
     final bytes = <int>[];
-    var padding = 0;
     for (var i = 0; i < base64.length; i += 4) {
       final c0 = chars.indexOf(base64[i]);
       final c1 = chars.indexOf(base64[i + 1]);
       final c2 = base64[i + 2] == '=' ? 0 : chars.indexOf(base64[i + 2]);
       final c3 = base64[i + 3] == '=' ? 0 : chars.indexOf(base64[i + 3]);
-      if (base64[i + 2] == '=') padding++;
-      if (base64[i + 3] == '=') padding++;
       bytes.add(((c0 << 2) | (c1 >> 4)) & 0xFF);
       if (base64[i + 2] != '=') bytes.add(((c1 << 4) | (c2 >> 2)) & 0xFF);
       if (base64[i + 3] != '=') bytes.add(((c2 << 6) | c3) & 0xFF);

@@ -6,6 +6,18 @@ part of 'config_model.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
+_$HyprspaceConfigImpl _$HyprspaceConfigFromJson(Map<String, dynamic> json) =>
+    _$$HyprspaceConfigImplFromJson(json);
+
+_$InterfaceConfigImpl _$InterfaceConfigFromJson(Map<String, dynamic> json) =>
+    _$$InterfaceConfigImplFromJson(json);
+
+_$PeerConfigImpl _$PeerConfigFromJson(Map<String, dynamic> json) =>
+    _$$PeerConfigImplFromJson(json);
+
+_$NetworkStatsImpl _$NetworkStatsFromJson(Map<String, dynamic> json) =>
+    _$$NetworkStatsImplFromJson(json);
+
 _$HyprspaceConfigImpl _$$HyprspaceConfigImplFromJson(
         Map<String, dynamic> json) =>
     _$HyprspaceConfigImpl(

@@ -26,14 +26,14 @@ class Peer extends DataClass implements Insertable<Peer> {
     final map = <String, Expression>{};
     map['id'] = Variable<String>(id);
     if (!nullToAbsent || name != null) {
-      map['name'] = Variable<String?>(name);
+      map['name'] = Variable<String>(name);
     }
     if (!nullToAbsent || publicKey != null) {
-      map['public_key'] = Variable<String?>(publicKey);
+      map['public_key'] = Variable<String>(publicKey);
     }
     map['vpn_ip'] = Variable<String>(vpnIp);
     if (!nullToAbsent || lastSeen != null) {
-      map['last_seen'] = Variable<DateTime?>(lastSeen);
+      map['last_seen'] = Variable<DateTime>(lastSeen);
     }
     map['status'] = Variable<String>(status);
     return map;
@@ -188,16 +188,16 @@ class PeersCompanion extends UpdateCompanion<Peer> {
       map['id'] = Variable<String>(id.value);
     }
     if (name.present) {
-      map['name'] = Variable<String?>(name.value);
+      map['name'] = Variable<String>(name.value);
     }
     if (publicKey.present) {
-      map['public_key'] = Variable<String?>(publicKey.value);
+      map['public_key'] = Variable<String>(publicKey.value);
     }
     if (vpnIp.present) {
       map['vpn_ip'] = Variable<String>(vpnIp.value);
     }
     if (lastSeen.present) {
-      map['last_seen'] = Variable<DateTime?>(lastSeen.value);
+      map['last_seen'] = Variable<DateTime>(lastSeen.value);
     }
     if (status.present) {
       map['status'] = Variable<String>(status.value);
@@ -231,12 +231,12 @@ class $PeersTable extends Peers with TableInfo<$PeersTable, Peer> {
       type: DriftSqlType.string, requiredDuringInsert: true);
   final VerificationMeta _nameMeta = const VerificationMeta('name');
   @override
-  late final GeneratedColumn<String?> name = GeneratedColumn<String?>(
+  late final GeneratedColumn<String> name = GeneratedColumn<String>(
       'name', aliasedName, true,
       type: DriftSqlType.string, requiredDuringInsert: false);
   final VerificationMeta _publicKeyMeta = const VerificationMeta('publicKey');
   @override
-  late final GeneratedColumn<String?> publicKey = GeneratedColumn<String?>(
+  late final GeneratedColumn<String> publicKey = GeneratedColumn<String>(
       'public_key', aliasedName, true,
       type: DriftSqlType.string, requiredDuringInsert: false);
   final VerificationMeta _vpnIpMeta = const VerificationMeta('vpnIp');
@@ -246,7 +246,7 @@ class $PeersTable extends Peers with TableInfo<$PeersTable, Peer> {
       type: DriftSqlType.string, requiredDuringInsert: true);
   final VerificationMeta _lastSeenMeta = const VerificationMeta('lastSeen');
   @override
-  late final GeneratedColumn<DateTime?> lastSeen = GeneratedColumn<DateTime?>(
+  late final GeneratedColumn<DateTime> lastSeen = GeneratedColumn<DateTime>(
       'last_seen', aliasedName, true,
       type: DriftSqlType.dateTime, requiredDuringInsert: false);
   final VerificationMeta _statusMeta = const VerificationMeta('status');
@@ -345,7 +345,7 @@ class LogEntry extends DataClass implements Insertable<LogEntry> {
     map['level'] = Variable<String>(level);
     map['message'] = Variable<String>(message);
     if (!nullToAbsent || extra != null) {
-      map['extra'] = Variable<String?>(extra);
+      map['extra'] = Variable<String>(extra);
     }
     return map;
   }
@@ -491,7 +491,7 @@ class LogEntriesCompanion extends UpdateCompanion<LogEntry> {
       map['message'] = Variable<String>(message.value);
     }
     if (extra.present) {
-      map['extra'] = Variable<String?>(extra.value);
+      map['extra'] = Variable<String>(extra.value);
     }
     return map;
   }
@@ -540,7 +540,7 @@ class $LogEntriesTable extends LogEntries
       type: DriftSqlType.string, requiredDuringInsert: true);
   final VerificationMeta _extraMeta = const VerificationMeta('extra');
   @override
-  late final GeneratedColumn<String?> extra = GeneratedColumn<String?>(
+  late final GeneratedColumn<String> extra = GeneratedColumn<String>(
       'extra', aliasedName, true,
       type: DriftSqlType.string, requiredDuringInsert: false);
   @override

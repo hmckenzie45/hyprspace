@@ -16,7 +16,7 @@ class ConnectionManager {
   final Connectivity _connectivity;
 
   final _peerStatuses = <String, ConnectionStatus>{};
-  StreamSubscription<List<ConnectivityResult>>? _connectivitySub;
+  StreamSubscription<ConnectivityResult>? _connectivitySub;
 
   // Reconnection configuration
   static const int _maxReconnectAttempts = 5;
@@ -57,7 +57,7 @@ class ConnectionManager {
   /// network is restored.
   void startNetworkMonitoring(Map<String, String> peers) {
     _connectivitySub = _connectivity.onConnectivityChanged.listen(
-      (results) => _onNetworkChanged(results, peers),
+      (result) => _onNetworkChanged(result, peers),
     );
   }
 
@@ -68,10 +68,10 @@ class ConnectionManager {
   }
 
   Future<void> _onNetworkChanged(
-    List<ConnectivityResult> results,
+    ConnectivityResult result,
     Map<String, String> peers,
   ) async {
-    final hasNetwork = results.any((r) => r != ConnectivityResult.none);
+    final hasNetwork = result != ConnectivityResult.none;
     if (hasNetwork) {
       AppLogger.info('Network restored – reconnecting peers');
       for (final entry in peers.entries) {
