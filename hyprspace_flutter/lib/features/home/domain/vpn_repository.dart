@@ -1,4 +1,4 @@
-import '../../core/config/config_model.dart';
+import '../../../core/config/config_model.dart';
 
 /// Abstract repository interface for VPN operations.
 abstract class VpnRepository {

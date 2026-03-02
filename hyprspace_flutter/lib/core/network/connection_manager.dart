@@ -96,7 +96,12 @@ class ConnectionManager {
       final delay = _baseBackoff * (1 << attempt);
       await Future<void>.delayed(delay);
     }
-    AppLogger.error('Could not reconnect to $peerId after $_maxReconnectAttempts attempts', null, null);
+    AppLogger.error(
+      'Could not reconnect to peer $peerId after $_maxReconnectAttempts attempts. '
+      'Check that the peer is online and network connectivity is stable.',
+      null,
+      null,
+    );
   }
 
   void dispose() {
