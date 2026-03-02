@@ -26,10 +26,12 @@ class _PeersPageState extends State<PeersPage> {
   Future<void> _load() async {
     setState(() => _loading = true);
     final cfg = await ConfigRepository().load();
-    if (mounted) setState(() {
-      _config = cfg;
-      _loading = false;
-    });
+    if (mounted) {
+      setState(() {
+        _config = cfg;
+        _loading = false;
+      });
+    }
   }
 
   Future<void> _addPeer() async {

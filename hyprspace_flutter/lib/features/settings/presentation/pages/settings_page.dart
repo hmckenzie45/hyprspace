@@ -55,9 +55,11 @@ class _SettingsPageState extends State<SettingsPage> {
       final keys = await _crypto.generateKeyPair();
       await _secureStorage.writePrivateKey(keys['privateKey']!);
       setState(() => _publicKeyDisplay = keys['publicKey']);
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('New key pair generated')),
-      );
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(content: Text('New key pair generated')),
+        );
+      }
     } catch (e) {
       if (mounted) await ErrorDialog.show(context, message: e.toString());
     } finally {
@@ -123,7 +125,7 @@ class _SettingsPageState extends State<SettingsPage> {
         child: ListView(
           padding: const EdgeInsets.all(16),
           children: [
-            _SectionHeader('Interface'),
+            const _SectionHeader('Interface'),
             TextFormField(
               controller: _nameCtrl,
               decoration:
@@ -168,7 +170,7 @@ class _SettingsPageState extends State<SettingsPage> {
               onChanged: (v) => setState(() => _autoReconnect = v),
             ),
             const Divider(height: 32),
-            _SectionHeader('Security'),
+            const _SectionHeader('Security'),
             if (_publicKeyDisplay != null) ...[
               Card(
                 child: Padding(

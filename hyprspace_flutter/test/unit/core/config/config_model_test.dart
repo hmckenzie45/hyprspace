@@ -5,7 +5,7 @@ import 'package:hyprspace_flutter/core/config/config_model.dart';
 void main() {
   group('HyprspaceConfig', () {
     test('round-trips through JSON', () {
-      final config = HyprspaceConfig(
+      final config = const HyprspaceConfig(
         id: 'test-id',
         interface: const InterfaceConfig(
           name: 'hs0',
@@ -44,7 +44,7 @@ void main() {
     });
 
     test('copyWith produces updated instance', () {
-      final original = HyprspaceConfig(
+      final original = const HyprspaceConfig(
         id: 'original',
         interface: const InterfaceConfig(id: 'x', privateKey: 'k'),
         mtu: 1420,

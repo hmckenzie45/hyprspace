@@ -522,7 +522,8 @@ class $LogEntriesTable extends LogEntries
       hasAutoIncrement: true,
       type: DriftSqlType.int,
       requiredDuringInsert: false,
-      defaultConstraints: 'PRIMARY KEY AUTOINCREMENT');
+      defaultConstraints:
+          GeneratedColumn.constraintIsAlways('PRIMARY KEY AUTOINCREMENT'));
   final VerificationMeta _timestampMeta = const VerificationMeta('timestamp');
   @override
   late final GeneratedColumn<DateTime> timestamp = GeneratedColumn<DateTime>(
