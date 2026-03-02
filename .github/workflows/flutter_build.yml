@@ -210,9 +210,12 @@ jobs:
 
       - name: Set compileSdkVersion to 35
         run: |
+          # Flutter 3.22+ template uses property-assignment syntax: compileSdk = flutter.compileSdkVersion
+          sed -i 's/compileSdk = flutter\.compileSdkVersion/compileSdk = 35/' android/app/build.gradle
+          # Fallback for older templates without the '=' separator
           sed -i 's/compileSdkVersion flutter\.compileSdkVersion/compileSdkVersion 35/' android/app/build.gradle
           sed -i 's/compileSdk flutter\.compileSdkVersion/compileSdk 35/' android/app/build.gradle
-          grep -E 'compileSdk(Version)?\s+35' android/app/build.gradle || \
+          grep -E 'compileSdk(Version)?(\s*=\s*|\s+)35' android/app/build.gradle || \
             { echo "ERROR: Failed to set compileSdkVersion to 35 in build.gradle"; exit 1; }
 
       - name: Build Android APK (release)
