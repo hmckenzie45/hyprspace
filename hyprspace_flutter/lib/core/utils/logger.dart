@@ -5,7 +5,7 @@ import 'package:logger/logger.dart';
 /// Wraps the `logger` package and provides static helper methods so that
 /// callers do not need to obtain a [Logger] instance directly.
 class AppLogger {
-  static late Logger _logger;
+  static Logger _logger = Logger(level: Level.off);
 
   /// Initialises the logger. Must be called once in [main].
   static void init({Level level = Level.debug}) {
