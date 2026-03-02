@@ -148,10 +148,10 @@ class PeersCompanion extends UpdateCompanion<Peer> {
         vpnIp = Value(vpnIp);
   static Insertable<Peer> custom({
     Expression<String>? id,
-    Expression<String?>? name,
-    Expression<String?>? publicKey,
+    Expression<String>? name,
+    Expression<String>? publicKey,
     Expression<String>? vpnIp,
-    Expression<DateTime?>? lastSeen,
+    Expression<DateTime>? lastSeen,
     Expression<String>? status,
   }) {
     return RawValuesInsertable({
@@ -449,7 +449,7 @@ class LogEntriesCompanion extends UpdateCompanion<LogEntry> {
     Expression<DateTime>? timestamp,
     Expression<String>? level,
     Expression<String>? message,
-    Expression<String?>? extra,
+    Expression<String>? extra,
   }) {
     return RawValuesInsertable({
       if (rowId != null) 'row_id': rowId,

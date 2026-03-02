@@ -3,7 +3,6 @@ import 'dart:typed_data';
 
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import '../config/config_model.dart';
 import '../utils/logger.dart';
 import 'vpn_native_bridge.dart';
 
