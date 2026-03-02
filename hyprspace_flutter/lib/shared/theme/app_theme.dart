@@ -5,8 +5,6 @@ class AppTheme {
   AppTheme._();
 
   static const _primaryColor = Color(0xFF6750A4);
-  static const _secondaryColor = Color(0xFF625B71);
-  static const _tertiaryColor = Color(0xFF7D5260);
 
   static ThemeData get lightTheme {
     final colorScheme = ColorScheme.fromSeed(
